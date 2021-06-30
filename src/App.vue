@@ -26,7 +26,7 @@ export default {
         {id: 3, sr: require("./assets/3.jpg"), text: "Модная версия"}
       ],
       comments: [
-        {id: 1, name: 'Goose', text: 'HUI'},
+        {id: 1, name: 'Goose', text: 'HUffffffffffffffffffffffffI'},
         {id: 2, name: 'Goose', text: 'HUI'},
         {id: 3, name: 'Goose', text: 'HUI'}
       ]
@@ -35,7 +35,6 @@ export default {
   methods:{
     AddComment(newComment) {
       this.comments.push(newComment);
-      console.log(newComment);
     }
   },
   components: {
@@ -55,6 +54,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   width: 1140px;
+  padding: 30px;
   margin: auto;
 }
 
