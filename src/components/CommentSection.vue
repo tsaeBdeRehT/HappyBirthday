@@ -1,6 +1,6 @@
 <template>
   <div class="viewport">
-    <button class="nav left" v-on:click="OnScrollLeft">Туда</button>
+    <button id="left" class="nav left" v-on:click="OnScrollLeft">Туда</button>
     <button id="right" class="nav right" v-on:click="OnScrollRight">Туда</button>
     <div id="comment-section" class="comment-section">
       <Comment v-for="comment of comments" :key="comment.id"
@@ -17,16 +17,15 @@ export default {
   props: ['comments'],
   components: {Comment},
   methods: {
-    OnScrollRight(){
+    OnScrollRight() {
       const el = document.getElementById('comment-section');
-      const button = document.getElementById('right');
       el.scroll({
         left: el.scrollLeft + 400,
         behavior: 'smooth'
       });
-      console.log(button.clientLeft, el.clientLeft);
-    },
-    OnScrollLeft(){
+    }
+    ,
+    OnScrollLeft() {
       const el = document.getElementById('comment-section');
       el.scroll({
         left: el.scrollLeft - 400,
@@ -44,6 +43,8 @@ export default {
 }
 
 .comment-section{
+  margin: auto;
+  width: 950px;
   overflow: hidden;
   overflow-x: scroll;
   white-space: nowrap;

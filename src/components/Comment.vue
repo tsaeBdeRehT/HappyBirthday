@@ -1,5 +1,5 @@
 <template>
- <div class="comment">
+ <div class="comment" v-on:mouseenter="Hover">
    <span class="name">{{comment.name}}</span>
    <p>{{comment.text}}</p>
  </div>
@@ -12,6 +12,12 @@ export default {
     comment: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    Hover(){
+      console.log(this.scrollHeight);
+      this.height = this.scrollHeight;
     }
   }
 }
@@ -37,5 +43,9 @@ export default {
 
 p {
   margin-bottom: 0;
+}
+
+.comment:hover{
+
 }
 </style>

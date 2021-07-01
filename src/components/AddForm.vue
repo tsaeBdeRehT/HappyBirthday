@@ -24,6 +24,7 @@ export default {
   name: "AddForm",
   methods: {
     OnSub(){
+
       if (this.login.trim() && this.comment.trim()){
         const newComment = {
           id: Date.now(),

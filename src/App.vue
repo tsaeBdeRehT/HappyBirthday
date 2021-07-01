@@ -23,18 +23,43 @@ export default {
       photos: [
         {id: 1, sr: require("./assets/1.jpg"), text: "Новогодняя версия"},
         {id: 2, sr: require("./assets/2.jpg"), text: "В работе"},
-        {id: 3, sr: require("./assets/3.jpg"), text: "Модная версия"}
+        {id: 3, sr: require("./assets/3.jpg"), text: "Модная версия"},
+        {id: 4, sr: require("./assets/4.jpg"), text: "Боевой режим"},
+        {id: 5, sr: require("./assets/5.jpg"), text: "Режим мага"},
+        {id: 6, sr: require("./assets/6.jpg"), text: "Расширенная версия"},
+        {id: 7, sr: require("./assets/7.jpg"), text: "Вкусное дополнение"}
       ],
-      comments: [
-        {id: 1, name: 'Goose', text: 'HUffffffffffffffffffffffffI'},
-        {id: 2, name: 'Goose', text: 'HUI'},
-        {id: 3, name: 'Goose', text: 'HUI'}
-      ]
+      comments: null
     }
+  },
+  mounted() {
+    fetch("http://localhost:8000/api/comments", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((res) => {
+      if (res.ok){
+        res.json().then((res) => {
+          this.comments = res;
+        })
+      }
+    })
   },
   methods:{
     AddComment(newComment) {
-      this.comments.push(newComment);
+      fetch("http://localhost:8000/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: newComment.name,
+          text: newComment.text
+        })
+      }).then((res) => {
+        if (res.ok) this.comments.push(newComment);
+      })
     }
   },
   components: {
