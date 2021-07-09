@@ -18,5 +18,8 @@ export default {
 <style>
 #reason2{
   font-size: 30px;
+  width: 500px;
+  margin: auto;
+  text-align: left;
 }
 </style>

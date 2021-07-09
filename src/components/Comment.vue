@@ -1,5 +1,5 @@
 <template>
- <div class="comment" v-on:mouseenter="Hover">
+ <div class="comment">
    <span class="name">{{comment.name}}</span>
    <p>{{comment.text}}</p>
  </div>
@@ -13,12 +13,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  methods: {
-    Hover(){
-      console.log(this.scrollHeight);
-      this.height = this.scrollHeight;
-    }
   }
 }
 </script>
@@ -26,14 +20,14 @@ export default {
 <style scoped>
 .comment{
   background-color: rgba(144,238,144,0.5);
-  width: 200px;
-  height: 150px;
+  width: 400px;
+  height: 300px;
   margin: 20px;
   display: inline-block;
   word-wrap: break-word;
   padding: 10px;
   white-space: normal;
-  overflow: hidden;
+  overflow-y: scroll;
   text-align: left;
   border-radius: 10px;
 }
@@ -41,11 +35,12 @@ export default {
   border-bottom: 1px solid rgba(144, 255, 144, 0.5);
 }
 
+.comment::-webkit-scrollbar{
+  width: 0;
+}
+
 p {
   margin-bottom: 0;
 }
 
-.comment:hover{
-
-}
 </style>

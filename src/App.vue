@@ -6,6 +6,7 @@
     />
     <Reason2/>
     <Reason3 v-bind:comments="comments" @add-comment="AddComment"/>
+    <Footer/>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import Reason3 from "@/components/Reason3";
 import Reason2 from "@/components/Reason2";
 import Header from "@/components/Header";
 import Reason1 from "@/components/Reason1";
+import Footer from "@/components/Footer";
 
 export default {
   name: 'App',
@@ -33,7 +35,7 @@ export default {
     }
   },
   mounted() {
-    fetch("http://localhost:8000/api/comments", {
+    fetch("./api/comments", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -48,12 +50,13 @@ export default {
   },
   methods:{
     AddComment(newComment) {
-      fetch("http://localhost:8000/api/comments", {
+      fetch("./api/comments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          id: newComment.id,
           name: newComment.name,
           text: newComment.text
         })
@@ -63,6 +66,7 @@ export default {
     }
   },
   components: {
+    Footer,
     Reason3,
     Reason2,
     Reason1,

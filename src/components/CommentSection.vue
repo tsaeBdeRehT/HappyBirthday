@@ -44,6 +44,7 @@ export default {
 
 .comment-section{
   margin: auto;
+  height: 380px;
   width: 950px;
   overflow: hidden;
   overflow-x: scroll;
@@ -61,7 +62,7 @@ export default {
   border: none;
   border-radius: 5px;
   position: absolute;
-  height: 170px;
+  height: 320px;
   margin-top: 20px;
 }
 

@@ -24,7 +24,6 @@ export default {
   name: "AddForm",
   methods: {
     OnSub(){
-
       if (this.login.trim() && this.comment.trim()){
         const newComment = {
           id: Date.now(),
@@ -35,6 +34,8 @@ export default {
         const back = document.getElementById("background");
         form.style.display = 'none';
         back.style.display = 'none';
+        this.login = '';
+        this.comment = '';
         this.$emit('add-comment', newComment);
       }
     },
@@ -71,7 +72,7 @@ export default {
 
 .add-form{
   width: 300px;
-  height: 200px;
+  height: 320px;
   position: fixed;
   top:0;
   bottom: 0;
@@ -84,6 +85,7 @@ export default {
 }
 .input{
   margin-bottom: 15px;
+  font-family: 'Lobster', sans-serif;
 }
 
 .button{
@@ -92,6 +94,10 @@ export default {
   height: 40px;
   font-family: 'Lobster', sans-serif;
   font-size: 20px;
+}
+
+#comment{
+  height: 150px;
 }
 
 .button:hover{

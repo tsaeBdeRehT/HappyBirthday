@@ -15,7 +15,7 @@ export default {
 <style>
 #header{
   font-size: 40px;
-  height: 650px;
+  margin-bottom: 250px;
 }
 
 </style>
